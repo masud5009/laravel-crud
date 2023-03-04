@@ -6,6 +6,9 @@
                 <a href="{{ route('information.index') }}" class="btn btn-primary m-2">Information list <i class="fas fa-arrow-right"></i></a>
                 <div class="card mt-2">
                     <div class="card-body">
+                        {{-- @if(session()->has('success'))
+                            {{session()->get('success')}}
+                        @endif --}}
                         {{-- @include('includes.error') --}}
                         <h3 class="card-title text-center mb-4">Census of Educational Institutions</h3>
                         <form action="{{ route('information.store') }}" method="post">
@@ -56,8 +59,8 @@
                                 <label for="inputTotalStudents">Total Students</label>
                                 <input type="number" class="form-control @error('inputLocation') is-invalid @enderror"
                                     name="inputTotalStudents" placeholder="Enter total number of students"
-                                    value="{{ old('inputLocation') }}">
-                                @error('inputLocation')
+                                    value="{{ old('inputTotalStudents') }}">
+                                @error('inputTotalStudents')
                                     <span class="text-danger">{{ $message }}</span>
                                 @enderror
                             </div>
@@ -65,8 +68,8 @@
                                 <label for="inputTotalTeachers">Total Teachers</label>
                                 <input type="number" class="form-control @error('inputLocation') is-invalid @enderror"
                                     name="inputTotalTeachers" placeholder="Enter total number of teachers"
-                                    value="{{ old('inputLocation') }}">
-                                @error('inputLocation')
+                                    value="{{ old('inputTotalTeachers') }}">
+                                @error('inputTotalTeachers')
                                     <span class="text-danger">{{ $message }}</span>
                                 @enderror
                             </div>

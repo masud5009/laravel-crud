@@ -4,8 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Information;
 use Illuminate\Http\Request;
-use Session;
-
+use Illuminate\Support\Facades\Session;
 class InformationController extends Controller
 {
     /**
@@ -50,7 +49,8 @@ class InformationController extends Controller
         $data->total_teacher = $request->inputTotalTeachers;
         $data->save();
 
-        return redirect('/')->with('message', 'Information added successful');
+        Session::flash('success', 'Add successful');
+        return redirect()->back();
     }
 
     /**
